@@ -1,5 +1,6 @@
 package org.example.test;
 
+import org.example.config.JedisConfig;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ public class JedisTest {
     @BeforeEach
     void setUp() {
         //建立连接
-        jedis = new Jedis("192.168.200.161",6379);
+        jedis = JedisConfig.getJedis();
         //设置密码
         jedis.auth("123321");
         //选择库
